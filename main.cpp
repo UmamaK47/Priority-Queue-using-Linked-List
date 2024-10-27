@@ -64,8 +64,8 @@ void PriorityQueue::insert(itemType item, Priority role) {
 
 itemType PriorityQueue::remove() {
     if (isEmpty()) {
-        cout << "QUEUE IS EMPTY\n";
-        exit(1); 
+        cout<< "QUEUE IS EMPTY\n";
+        return "";
     }
     //Store data of head incase we want to return it
     //Store address of head in a temporary pointer
@@ -139,16 +139,14 @@ int main() {
         else {
             cout << "Invalid choice";
         }
-        cout << "\nWould you like to continue?(Y/N)";
-        cin >> con;
-        if (con == 'n' || con == 'N') {
-            cout << "Exiting Program...";
-        }
-        else if (con == 'y' || con == 'Y') {}
-        else {
-            cout << "invalid input: enter Y/N";
-            continue;
-        }
+        do {
+            cout << "\nWould you like to continue? (Y/N): ";
+            cin >> con;
+            if (con != 'y' && con != 'Y' && con != 'n' && con != 'N') {
+                cout << "Invalid input: please enter Y or N." << endl;
+            }
+        } while (con != 'y' && con != 'Y' && con != 'n' && con != 'N');
     } while (con == 'y' || con == 'Y');
+    cout << "Exiting Program..." << endl;
     return 0;
 }
